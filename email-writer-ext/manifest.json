@@ -1,0 +1,41 @@
+{
+  "name": "Email Writer Assistant",
+  "description": "AI Powered email reply generator",
+  "version": "1.0",
+  "manifest_version": 3,
+
+  "permissions": [
+    "activeTab",
+    "storage",
+    "scripting"
+  ],
+
+  "host_permissions": [
+    "http://localhost:*/",
+    "*://mail.google.com/*"
+  ],
+
+  "action": {
+    "default_title": "Email Writer Assistant",
+    "default_icon": {
+      "16": "icons/icon16.png",
+      "48": "icons/icon48.png",
+      "128": "icons/icon128.png"
+    }
+  },
+
+  "icons": {
+    "16": "icons/icon16.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  },
+
+  "content_scripts": [
+    {
+      "matches": ["*://mail.google.com/*"],
+      "js": ["content.js"],
+      "css": ["content.css"],
+      "run_at": "document_idle"
+    }
+  ]
+}
